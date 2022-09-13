@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Consumption 2022</title>
+    <link rel="icon" type="favicon" href="https://thumbs.dreamstime.com/b/petro-canada-gas-station-montreal-june-quebec-editorial-174679386.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        h1{
+            background-color: sandybrown;
+            height: 100px;
+        }
+        h1{
+            padding-top: 30px;
+        }
+        ul li{
+            display: inline-block;
+            padding-right: 10px;
+        }
+        li{
+            position: relative;
+            right: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="navbar">
+            <p></p>
+            <ul>
+                <li><b>Home</b></li>
+                <li><b>Contact</b></li>
+                <li><b>Service</b></li>
+            </ul>
+
+        </div>
+        <center>
+            <h1 class="mb-5">Fuel Consumption</h1>
+        </center>
+        <form class="form-card" action="{{url_for('predict')}}"method='post'>
+            <div class="row">
+            <div class="col-3">
+                <label><b>Make</b></label><span class="text-danger"></span>
+                <select name="aaa" id="aaa" class="form-control">
+                    <option value="">Acura</option>
+                    <option value="">Alfa Romeo</option>
+                    <option value="">Aston Martin</option>
+                    <option value="">Audi</option>
+                    <option value="">Bentley</option>    
+                    <option value="">BMW</option>
+                    <option value="">Bugatti</option>
+                    <option value="">Buick</option>
+                    <option value="">Cadillac</option>
+                    <option value="">Chevrolet</option>
+                    <option value="">Chrysler</option>
+                    <option value="">Dodge</option>
+                    <option value="">FIAT</option>
+                    <option value="">Ford</option>
+                    <option value="">Genesis</option>
+                    <option value="">GMC</option>
+                    <option value="">Honda</option>
+                    <option value="">Hyundai</option>
+                    <option value="">Infiniti</option>
+                    <option value="">Jaguar</option>
+                    <option value="">Jeep</option>
+                    <option value="">Kia</option>
+                    <option value="">Lamborghini</option>
+                    <option value="">Land Rover</option>
+                    <option value="">Lexus</option>
+                    <option value="">Lincoln</option>
+                    <option value="">Maserati</option>
+                    <option value="">Mazda</option>
+                    <option value="">Mercedes-Benz</option>
+                    <option value="">MINI</option>
+                    <option value="">Mitsubishi</option>
+                    <option value="">Nissan</option>
+                    <option value="">Porsche</option>
+                    <option value="">Ram</option>
+                    <option value="">Rolls-Royce</option>
+                    <option value="">Subaru</option>
+                    <option value="">Toyota</option>
+                    <option value="">Volkswagen</option>
+                    <option value="">Volvo</option>
+                </select>
+                <br>
+                <label><b>Model</b></label>
+                <input type="text" name="bbb" id="bbb" class="form-control">
+                <br>
+                <label><b>Vechile Class</b></label>
+                <select name="ccc" id="ccc" class="form-control">
+                    <option value="">Compact</option>
+                    <option value="">SUV: Small</option>
+                    <option value="">Mid-size</option>
+                    <option value="">Minicompact</option>
+                    <option value="">SUV: Standard</option>
+                    <option value="">Two-seater</option>
+                    <option value="">Subcompact</option>
+                    <option value="">Station wagon: Small</option>
+                    <option value="">Station wagon: Mid-size</option>
+                    <option value="">Full-size</option>
+                    <option value="">Pickup truck: Small</option>
+                    <option value="">Pickup truck: Standard</option>
+                    <option value="">Minivan</option>
+                    <option value="">Special purpose vehicle</option>
+                </select>
+                <br>
+                <label><b>Transmission</b></label>
+                <select name="ddd" id="ddd" class="form-control">
+                    <option value="">AM8</option>
+                    <option value="">AS10</option>
+                    <option value="">A8</option>
+                    <option value="">A9</option>
+                    <option value="">AM7</option>
+                    <option value="">AS8</option>
+                    <option value="">M6</option>
+                    <option value="">AS6</option>
+                    <option value="">AV</option>
+                    <option value="">AS9</option>
+                    <option value="">A10</option>
+                    <option value="">A6</option>
+                    <option value="">M5</option>
+                    <option value="">M7</option>
+                    <option value="">AV7</option>
+                    <option value="">AV1</option>
+                    <option value="">AM6</option>
+                    <option value="">AS7</option>
+                    <option value="">AV8</option>
+                    <option value="">AV6</option>
+                    <option value="">AV10</option>
+                    <option value="">AS5</option>
+                    <option value="">A7</option>
+                </select>
+                <br>
+                <label><b>Fuel Type</b></label>
+                <select name="eee" id="eee" class="form-control">
+                    <option value="">Z</option>
+                    <option value="">X</option>
+                    <option value="">D</option>
+                    <option value="">E</option>
+                </select>
+                <br>
+            </div>
+            <div class="col-3">
+                <label><b>Engine Size</b></label>
+                <input type="number" name="fff" id="fff" class="form-control">
+                <br>
+                <label><b>Cylinders</b></label>
+                <input type="number" name="ggg" id="ggg" class="form-control">
+                <br>
+                <label><b>CO2</b></label>
+                <input type="number" name="hhh" id="hhh" class="form-control">
+                <br>
+                <label><b>SmokeRate</b></label>
+                <input type="number" name="iii" id="iii" class="form-control">
+                <br>
+            </div>
+            <div class="col-6">
+                <img src="https://thumbs.dreamstime.com/b/petro-canada-gas-station-montreal-june-quebec-editorial-174679386.jpg" height="415" width="700">
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <center>
+            <button type="submit" class="btn btn-info">Predict Now!</button>
+            <h4 style="color:blue" class="text-center">{{ prediction_text }}</h4>
+        </center>
+    </div>
+    </form>
+    
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid">
+        <center>
+            <h4>SERVICES</h4>
+            <p>We Offer</p>
+            <br>
+            <br>
+        </center>
+        <div class="row text-center">
+            <div class="col-4">
+                <svg xmlns="http://www.w3.org/2000/svg" color="orange" width="50" height="50" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                    <path d="M7.5 1v7h1V1h-1z"/>
+                    <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                </svg>
+                <h4>POWER</h4>
+                <br>
+                <br>
+                <br>
+                <svg xmlns="http://www.w3.org/2000/svg" color="orange" width="50" height="50" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                </svg>
+                <h4>CERTIFIED</h4>
+            </div>
+            <div class="col-4">
+                <svg xmlns="http://www.w3.org/2000/svg" color="orange" width="50" height="50" fill="currentColor" class="bi bi-heart" viewBox=    "0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg>
+                <h4>CARE</h4>
+                <br>
+                <br>
+                <br>
+                <svg xmlns="http://www.w3.org/2000/svg" color="orange" width="50" height="50" fill="currentColor" class="bi bi-tools" viewBox=  "0 0 16 16">
+                    <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+                </svg>
+                <h4>HARD WORK</h4>
+            </div>
+            <div class="col-4">
+                <svg xmlns="http://www.w3.org/2000/svg" color="orange" width="50" height="50" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+                </svg>
+                <h4>JOB DONE</h4>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-light">
+        <h2 class="text-center pt-5">CONTACT</h2>
+        <br>
+        <div class="row">
+            <div class="col-sm-5">
+                <p>Contact us and we'll get back to you within 24 hours.</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Hyderabad, KPHB</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +91 8143165743</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> anudeepreddy230@gmail.com</p>
+            </div>
+            <div class="col-sm-7 slideanim">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="3"></textarea><br>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-primary pull-right" type="submit">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
